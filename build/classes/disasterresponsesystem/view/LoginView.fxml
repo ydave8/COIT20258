@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="disasterresponsesystem.controller.LoginController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Disaster Response System" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <TextField fx:id="usernameField" promptText="Enter Username" />
+    
+    <!-- ComboBox without items. Items will be added in controller's initialize() method -->
+    <ComboBox fx:id="roleComboBox" promptText="Select Role" />
+    
+    <Button text="Login" onAction="#handleLogin" />
+</VBox>

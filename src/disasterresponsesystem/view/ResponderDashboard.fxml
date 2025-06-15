@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> <?import javafx.scene.layout.*?> <?import javafx.scene.control.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="disasterresponsesystem.controller.ResponderDashboardController">
+
+<top>
+    <VBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+        <Label text="Responder Dashboard"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+        <Label text="Responders can update the status of assigned incidents." />
+    </VBox>
+</top>
+
+<center>
+    <VBox spacing="15">
+<TableView fx:id="incidentTable" prefHeight="250">
+    <columns>
+        <TableColumn fx:id="typeColumn" text="Type"/>
+        <TableColumn fx:id="locationColumn" text="Location"/>
+        <TableColumn fx:id="severityColumn" text="Severity"/>
+        <TableColumn fx:id="departmentColumn" text="Department"/>
+        <TableColumn fx:id="statusColumn" text="Status"/>
+        <TableColumn fx:id="timeColumn" text="Timestamp"/>
+    </columns>
+</TableView>
+
+        <HBox spacing="10">
+            <ComboBox fx:id="statusComboBox" promptText="Update Status"/>
+            <Button text="Mark as Updated" onAction="#handleUpdateStatus"/>
+        </HBox>
+    </VBox>
+</center>
+
+<bottom>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+</bottom>
+
+</BorderPane>

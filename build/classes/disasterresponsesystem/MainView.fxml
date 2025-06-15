@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="disasterresponsesystem.MainController">
+    <top>
+        <Label text="Disaster Response System"
+               style="-fx-font-size: 24px; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- Dashboard Tab -->
+            <Tab text="Dashboard">
+                <VBox spacing="10">
+                    <HBox spacing="10">
+                        <TextField fx:id="typeField" promptText="Incident Type"/>
+                        <TextField fx:id="locationField" promptText="Location"/>
+                    </HBox>
+                    <HBox spacing="10">
+                        <ComboBox fx:id="severityBox" promptText="Severity"/>
+                        <ComboBox fx:id="departmentBox" promptText="Department"/>
+                        <Button text="Add Incident" onAction="#handleAddIncident"/>
+                    </HBox>
+
+                    <TableView fx:id="incidentTable" prefHeight="250">
+                        <columns>
+                            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                            <TableColumn fx:id="locationColumn" text="Location" prefWidth="100"/>
+                            <TableColumn fx:id="severityColumn" text="Severity" prefWidth="80"/>
+                            <TableColumn fx:id="departmentColumn" text="Department" prefWidth="100"/>
+                            <TableColumn fx:id="timeColumn" text="Timestamp" prefWidth="200"/>
+                        </columns>
+                    </TableView>
+
+                    <Button text="Export to Text File" onAction="#handleExport"/>
+                </VBox>
+            </Tab>
+
+            <!-- Chart Tab -->
+            <Tab text="Incident Chart">
+                <VBox>
+                    <PieChart fx:id="disasterPieChart" prefHeight="400" prefWidth="600"/>
+                    <Button text="Refresh Chart" onAction="#handleRefreshChart"/>
+                </VBox>
+            </Tab>
+
+            <!-- Search Tab -->
+            <Tab text="Search">
+                <VBox spacing="10">
+                    <HBox spacing="10">
+                        <TextField fx:id="searchField" promptText="Search by Type or Location"/>
+                        <Button text="Search" onAction="#handleSearch"/>
+                    </HBox>
+                    <TableView fx:id="searchTable" prefHeight="250">
+                        <columns>
+                            <TableColumn fx:id="searchTypeColumn" text="Type" prefWidth="100"/>
+                            <TableColumn fx:id="searchLocationColumn" text="Location" prefWidth="100"/>
+                            <TableColumn fx:id="searchSeverityColumn" text="Severity" prefWidth="100"/>
+                            <TableColumn fx:id="searchDepartmentColumn" text="Department" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>
